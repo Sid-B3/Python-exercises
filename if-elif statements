@@ -1,0 +1,30 @@
+#This is a file for using conditional statements
+#Test the rating of a music album, if rating is greater than 8 say it's "amazing"
+Back_in_Black = 8.5
+if(Back_in_Black>8 ):
+    print("This album is amazing!")
+else:
+    print("Why bother")
+    
+    
+#Test else statement
+Ride_the_lightning=8
+if(Ride_the_lightning>8:
+    print("This album is amazing")
+else:
+    print("This album is ok")
+    
+#To show use of if statement
+#Checking the year an album came out, or if it released before 1980 
+album=1970
+if(album<1980):
+    print("This album came out before 1980",",year of album is:",album)
+elif(album==1991):
+    print("This album came out in 1991")
+elif(album==1993):
+    print("This album came out in 1993")
+    
+#Example of using for loop for printing list of values 
+A=[1,2,3,4,5]
+for x in A:
+    print (x)
