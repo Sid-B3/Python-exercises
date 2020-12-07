@@ -1,0 +1,28 @@
+#These are examples of writing to file in Python
+with open('/resources/data/Example2.txt', 'w') as writefile: # Use mode 'w' to write to file
+    writefile.write("This is line A"). #Adds this like to file 'writefile' 
+    
+with open('/resources/data/Example2.txt', 'r') as testwritefile:  #store the file location in variable testwritefile
+    print(testwritefile.read())       #read the data stored in file and display using print 
+    
+#Appending a line to an existing file 
+with open('/resources/data/Example2.txt', 'a') as testwritefile:
+    testwritefile.write("This is line C\n")
+    
+ #Creating list of data and writing it to a file
+ Lines = ["This is line A\n", "This is line B\n", "This is line C\n"]
+Lines
+with open('Example2.txt', 'w') as writefile:
+    for line in Lines:
+        print(line)
+        writefile.write(line)
+        
+#Copy one file to another
+with open('Example2.txt','r') as readfile:
+    with open('Example3.txt','w') as writefile:
+          for line in readfile:
+                writefile.write(line)
+                
+
+    
+    
