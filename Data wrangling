@@ -1,0 +1,30 @@
+#This program is for getting data from csv file, from a known url
+# Import pandas library
+import pandas as pd
+#online file is found through url and assigned variable name df
+other_path = "https://s3-api.us-geo.objectstorage.softlayer.net/cf-courses-data/CognitiveClass/DA0101EN/auto.csv"
+df = pd.read_csv(other_path, header=None)
+#function to show first 5 rows of data
+print("The first 5 rows of the dataframe") 
+df.head(5)
+#bottom 10 rows
+df.tail(10)
+#Since the data did not have headers to columns, the column names(headers) are assigned
+headers = ["symboling","normalized-losses","make","fuel-type","aspiration", "num-of-doors","body-style",
+         "drive-wheels","engine-location","wheel-base", "length","width","height","curb-weight","engine-type",
+         "num-of-cylinders", "engine-size","fuel-system","bore","stroke","compression-ratio","horsepower",
+         "peak-rpm","city-mpg","highway-mpg","price"]
+print("headers\n", headers)
+#test
+df.columns = headers
+df.head(10)
+#Function to drop missing values, in this case under header price
+df.dropna(subset=["price"], axis=0)
+#finding types of data
+print(df.dtypes)
+#Gives some important values from data
+df.describe()
+df.describe(include = "all")
+#Find data under specific columns 
+df[['length','compression-ratio']].describe()
+df.info
