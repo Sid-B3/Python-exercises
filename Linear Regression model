@@ -1,0 +1,36 @@
+#Program to create a linear regression model to predict value of car based on its mileage 
+#Linear regression model uses one variable 
+#Importing libraries
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+%matplotlib inline 
+#Above 2 lines are to import data visualization library 
+#importing data models from url
+path = 'https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DA0101EN-SkillsNetwork/labs/Data%20files/automobileEDA.csv'
+df = pd.read_csv(path)
+df.head()
+#Load linear regression module from Scikit library
+from sklearn.linear_model import LinearRegression
+#Creating linear regression object
+lrobject=LinearRegression()
+lrobject
+#use engine-size as dependent variable and price as dependent 
+X=df[['engine-size']]
+Y=df[['price']]
+lrobject.fit(X,Y)
+lrobject
+#Find the slope 
+lrobject.coef_
+#find the intercept value
+lrobject.intercept_
+#Equation for linear regression to predict value from dataset
+Yhat=-7963.34+166.86*(X) 
+#basically Y = mX + B
+#Block to create a plot 
+width = 12
+height = 10
+plt.figure(figsize=(width, height))
+sns.regplot(x="engine-size", y="price", data=df)
+plt.ylim(0,)
