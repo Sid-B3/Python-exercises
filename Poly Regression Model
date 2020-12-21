@@ -1,0 +1,32 @@
+#Code to create polynomial regression model
+#Setup and datasets same as linear regression model
+#Creating a function for poly reg modelling
+def PlotPolly(model, independent_variable, dependent_variabble, Name):
+    x_new = np.linspace(15, 55, 100)
+    y_new = model(x_new)
+
+    plt.plot(independent_variable, dependent_variabble, '.', x_new, y_new, '-')
+    plt.title('Polynomial Fit with Matplotlib for Price ~ Length')
+    ax = plt.gca()
+    ax.set_facecolor((0.898, 0.898, 0.898))
+    fig = plt.gcf()
+    plt.xlabel(Name)
+    plt.ylabel('Price of Cars')
+
+    plt.show()
+    plt.close()
+    
+#Define the dependent and independent variables
+    x = df['highway-mpg']
+y = df['price']
+#Cubic polynomial
+f = np.polyfit(x, y, 3)
+p = np.poly1d(f)
+print(p)
+PlotPolly(p, x, y, 'highway-mpg')
+
+#11th order polynomial
+f1=np.polyfit(x,y,11)
+p1=np.poly1d(f1)
+print(p1)
+PlotPolly(p1,x,y,'Highway MPG')
